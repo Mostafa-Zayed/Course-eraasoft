@@ -6,20 +6,7 @@ class Doctor extends Person
     public $special;
 }
 
-
-class Test extends Doctor
-{
-    public $test;
-}
-
-$test = new Test;
-echo '<pre>';
-var_dump($test);
-echo '</pre>';
-die();
-$ahmed = new Doctor;
-$ahmed->firstName = 'ahmed';
-$ahmed->lastName = 'ali';
+$ahmed = new Doctor(44,'ahmed','ali','zakey','male',true);
 $ahmed->showFullName();
 echo '<pre>';
 var_dump($ahmed);

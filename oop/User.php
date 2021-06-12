@@ -1,48 +1,38 @@
 <?php
+include_once 'Person.php';
 
-class User
+class User extends Person
 {
-    //public $testing;
-    public $firstName = 'firstname';
-    public $lastName;
-    public $familyName;
+    private $email;
+    public $password;
+    private $name;
 
-    // methods
-     function showFullName()
+    public function makePasswordHased($password)
     {
-        echo $this->firstName. ' '.$this->lastName.' '.$this->familyName;
+        $this->password = password_hash($password,PASSWORD_DEFAULT);
     }
 
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
+    public function setName($name)
+    {
+        $this->name = ucfirst($name);
+    }
+
+    public function getName()
+    {
+        return $this->name;
+    }
 }
 
-class User2 extends User
-{
-
-}
-$mohamed = new User;
-$mohamed->firstName = 'mohamed';
-$mohamed->lastName = 'ali';
-$mohamed->familyName = 'familyName';
+$mohamed = new User(44,'ahmed','ali','mohamed','male',true);
+$mohamed->setName('mohamed');
+echo $mohamed->getName();
+$mohamed->setEmaile('mohamed@gmail.com') ;
+$mohamed->makePasswordHased('mohamed');
 $mohamed->showFullName();
-echo '<br>';
-//die();
-//echo $mohamed->firstName . ' '. $mohamed->lastName . ' '.$mohamed->familyName;
-//echo '<pre>';
-//print_r($mohamed);
-//echo '</pre>';
-
-$ahmed = new user;
-$ahmed->firstName = 'ahmed';
-$ahmed->lastName = 'mohamed';
-$ahmed->familyName = 'familyName';
-$ahmed->showFullName();
-die();
-$mona = new User;
-
 echo '<pre>';
-print_r($ahmed);
-echo '</pre>';
-die();
-echo '<pre>';
-print_r($mona);
+print_r($mohamed);
 echo '</pre>';
